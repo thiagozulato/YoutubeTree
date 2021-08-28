@@ -2,7 +2,7 @@
 [Bb]in
 [Oo]bj
 
-/node_modules
+node_modules
 /.pnp
 .pnp.js
 
