@@ -7,7 +7,8 @@
 - Merge do Search Youtube / Banco de Dados
 - Paginação do YoutubeService.
 - Deploy
-    - Configuração do Beanstalk foi toda executada, porém houve alguns problemas na configuração do manifesto de deploy
+    - http://youtubetree-env.eba-2xnmzy33.us-east-1.elasticbeanstalk.com/swagger/index.html
+    - Configuração do Beanstalk foi toda executada, porém houve alguns problemas na configuração das variáveis de ambiente
 
 > **Motivo** Os items não foram implementados, pois foi necessário atender outras necessidades externas, durante o período dos testes.
 
