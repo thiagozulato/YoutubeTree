@@ -6,11 +6,13 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using YoutubeTree.Data;
 
 namespace YoutubeTree.API
 {
@@ -26,12 +28,26 @@ namespace YoutubeTree.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
+            services.AddDatabase(Configuration);
+            services.AddDependencies(Configuration);
 
+            services.AddCors(options => {
+                options.AddDefaultPolicy(
+                    policy => {
+                        policy.AllowAnyHeader()
+                              .AllowAnyOrigin()
+                              .AllowAnyMethod();
+                    }
+                );
+            });
+            
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "YoutubeTree.API", Version = "v1" });
             });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,9 +60,8 @@ namespace YoutubeTree.API
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "YoutubeTree.API v1"));
             }
 
-            app.UseHttpsRedirection();
-
             app.UseRouting();
+            app.UseCors();
 
             app.UseAuthorization();
 
@@ -57,3 +72,5 @@ namespace YoutubeTree.API
         }
     }
 }
+
+ //https://www.youtube.com/watch?v=but7jqjopKM
