@@ -4,7 +4,7 @@ export type YoutubeSearchViewModel = {
   type: string;
   title: string;
   description: string;
-  publishedAt: Date;
+  publishedAt: string;
   defaultThumbnail: string;
   mediumThumbnail: string;
   highThumbnail: string;

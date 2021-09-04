@@ -44,14 +44,18 @@ Para se conectar ao Banco a partir do Postgres Admin
 
 As migrations estão dentro do projeto da API.
 
-### Melhorias
+### Criar Migrations
 
-- Colocar os Migrations em uma assembly separada.
+> OBS: O CLI deve estar apontando para pasta raiz do projeto, onde se encontra o ***.sln**
+
+```
+dotnet ef migrations add Initial -p YoutubeTree.Data -s YoutubeTree.API
+```
 
 Na pasta raiz da API
 
 ```
-dotnet ef database update
+dotnet ef database update -p YoutubeTree.Data -s YoutubeTree.API
 ```
 
 Os scripts das Tabelas estão na pasta **/Script**
