@@ -8,4 +8,10 @@ export type YoutubeSearchViewModel = {
   defaultThumbnail: string;
   mediumThumbnail: string;
   highThumbnail: string;
+  isSubscribed: boolean;
+};
+
+export type PagedSearchViewModel = {
+  data: YoutubeSearchViewModel[],
+  nextPageToken: string,
 };

@@ -52,7 +52,7 @@ namespace YoutubeTree.API
             return Ok();
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(Guid id)
         {
             await _subscriptionRepository.Delete(id);

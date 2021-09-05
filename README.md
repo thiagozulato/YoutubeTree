@@ -1,22 +1,29 @@
 # Items a implementar
 
-- Front-End
-- Testes
-    - Necessário ainda desacoplar alguns serviço, como o YoutubeService, para permitir um teste melhor das integrações.
-    - Também, o domínio está bem simples.
-- Merge do Search Youtube / Banco de Dados
-- Paginação do YoutubeService.
 - Deploy
-    - http://youtubetree-env.eba-2xnmzy33.us-east-1.elasticbeanstalk.com/swagger/index.html
     - Configuração do Beanstalk foi toda executada, porém houve alguns problemas na configuração das variáveis de ambiente
+# Front
 
-> **Motivo** Os items não foram implementados, pois foi necessário atender outras necessidades externas, durante o período dos testes.
+Abrir o CLI na pasta **front** e executar os comandos a seguir:
+
+```
+npm install
+npm run start
+```
 
 # API
 
 É possível executar a API localmente com Banco de Dados **InMemory**. Para isso, altere a tag **Database:Memory = true** no arquivo **appsettings.(*).json**
 
 Caso false, é necessário configurar a string de conexão com o banco de dados, no caso, **Postgres**.
+
+# Tests
+
+Na pasta **server**, onde se encontra o projeto **sln**, executar o comando:
+
+```
+dotnet test
+```
 
 # Docker
 
@@ -43,9 +50,8 @@ Para se conectar ao Banco a partir do Postgres Admin
 
 # Migrations
 
-As migrations estão dentro do projeto da API.
+### Criar Migrations  
 
-### Criar Migrations
 
 > OBS: O CLI deve estar apontando para pasta raiz do projeto, onde se encontra o ***.sln**
 

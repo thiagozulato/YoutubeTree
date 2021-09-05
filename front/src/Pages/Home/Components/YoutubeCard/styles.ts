@@ -1,6 +1,6 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => createStyles({
   root: {
     display: 'flex',
     flexDirection: 'column',
@@ -17,6 +17,10 @@ const useStyles = makeStyles({
   actions: {
     marginLeft: 'auto',
   },
-});
+  description: {
+    marginTop: theme.spacing(2),
+    color: '#999',
+  },
+}));
 
 export default useStyles;

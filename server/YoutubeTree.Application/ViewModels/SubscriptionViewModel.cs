@@ -15,6 +15,7 @@ namespace YoutubeTree.Application
         public string DefaultThumbnail { get; set; }
         public string MediumThumbnail { get; set; }
         public string HighThumbnail { get; set; }
+        public bool IsSubscribed { get; set; }
 
         public static IEnumerable<SubscriptionViewModel> ToMapMany(IEnumerable<Subscription> subscriptions)
         {
@@ -31,6 +32,7 @@ namespace YoutubeTree.Application
                     DefaultThumbnail = subscription.DefaultThumbnail,
                     MediumThumbnail = subscription.MediumThumbnail,
                     HighThumbnail = subscription.HighThumbnail,
+                    IsSubscribed = true
                 };
             }
         }
@@ -48,6 +50,7 @@ namespace YoutubeTree.Application
                     DefaultThumbnail = subscription.DefaultThumbnail,
                     MediumThumbnail = subscription.MediumThumbnail,
                     HighThumbnail = subscription.HighThumbnail,
+                    IsSubscribed = true
                 };
         }
     }

@@ -23,6 +23,11 @@ namespace YoutubeTree.Application
 
         public async Task<PagedSearchResponse<SubscriptionViewModel>> Search(string term, string nextPageToken = "")
         {
+            if (string.IsNullOrEmpty(term))
+            {
+                return new PagedSearchResponse<SubscriptionViewModel>();
+            }
+
             var listResult = new List<SubscriptionViewModel>();     
             var pagedResponse = new PagedSearchResponse<SubscriptionViewModel>();       
             var subscriptions = await _subscriptionRepository.GetByTerm(term);            
@@ -51,7 +56,8 @@ namespace YoutubeTree.Application
                         PublishedAt = youtubeItem.PublishedAt,
                         DefaultThumbnail = youtubeItem.DefaultThumbnail,
                         MediumThumbnail = youtubeItem.MediumThumbnail,
-                        HighThumbnail = youtubeItem.HighThumbnail
+                        HighThumbnail = youtubeItem.HighThumbnail,
+                        IsSubscribed = false,
                     });
                 }
             }
